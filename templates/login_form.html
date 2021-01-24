@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{% block body %}
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="/">Home</a></li>
+				<li class="">Login Form</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
+<br><br>
+    <!-- section -->
+<div class="container" style="text-align:center">
+	 <div class="row justify-content-center col-sm-6">
+
+		 {% if messages %}
+			 {% for message in messages %}
+			 <div class="alert alert-{{message.tags}}" role="alert">
+				 {{ message }}
+			 </div>
+			 {% endfor %}
+		 {% endif %}
+
+     <form action="" method="post">
+		 {% csrf_token %}
+		 <div class="form-group">
+			 <input class="input" type="text" name="username" placeholder="Fuser Name">
+		 </div>
+		 <div class="form-group">
+			 <input class="input" type="password" name="password" placeholder="Password">
+		 </div>
+		 <input class="primary-btn" style="background:#E10074; border-radius: 50px!important; width:200px;" type="submit" value="Login">
+		 <br><br>
+		 <div style="color:#E10074">
+			 <!--##<a href=""><b><u>ForgetPassword</u></b></a> <br>-->
+			 <a href="/signup"><b><u style="color:#E10074;">SignUp</u></b></a></div>
+	 </form>
+	 </div>
+	<!-- /section -->
+</div>
+{% endblock %}

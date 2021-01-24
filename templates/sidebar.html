@@ -1,0 +1,49 @@
+{% load static %}
+<style>
+ .category-nav .category-header {
+    padding: 15px;
+    display: block;
+    text-transform: uppercase;
+    background: none;
+    color: none!important;
+    font-weight: 700;
+}
+</style>
+<!-- NAVIGATION -->
+<div id="navigation" style="background-color:#000000!important;">
+    <!-- container -->
+    <div class="container">
+        <div id="responsive-nav">
+            <!-- category nav -->
+            {% if page %}
+                <div class="category-nav">
+            {% else %}
+                <div class="category-nav show-on-click">
+            {% endif %}
+
+            <span class="category-header"><i class=""></i></span>
+
+
+            <ul class="category-list">
+
+            </ul>
+
+            </div>
+            <!-- /category nav -->
+
+            <!-- menu nav -->
+            <div class="menu-nav">
+                <span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+                <ul class="menu-list" style="text-align:center; background:#E10074;">
+                    <li><a href="/" style="color:#FFFFFF!important;"><b>Home</b></a></li>
+                    <li><a href="/product" style="color:#FFFFFF!important;"><b>Products</b></a></li>
+                    <li><a href="/contact" style="color:#FFFFFF!important; margin-right: 280px;"><b>Contact Us</b></a></li>
+                </ul>
+            </div>
+            <!-- menu nav -->
+            </div>
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /NAVIGATION -->
+</div>

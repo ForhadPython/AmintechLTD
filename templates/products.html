@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{% block body %}
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="/">Home</a></li>
+				<li class="">Products</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
+
+<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				{% for rs in page_obj %}
+				<!-- Product Single -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="product product-single">
+						<div class="product-thumb">
+							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i><a href="/product/{{rs.id}}">Quick view</a></button>
+							<img src="{{ rs.image.url }}" alt="">
+						</div>
+						<div class="product-body">
+							<h3 class="product-price">{{ rs.price }}</h3>
+							<div class="product-rating">
+                                <i class="fa fa-star{% if rs.avaregereview < 1%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if rs.avaregereview < 2%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if rs.avaregereview < 3%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if rs.avaregereview < 4%}-o empty{% endif%}"></i>
+                                <i class="fa fa-star{% if rs.avaregereview < 5%}-o empty{% endif%}"></i>
+                                {{ rs.avaregereview}}/{{ rs.countreview}}
+                            </div>
+							<h2 class="product-name"><a href="/product/{{rs.id}}">{{ rs.name }}</a></h2>
+							<div class="product-btns">
+								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+								<button class="primary-btn add-to-cart"><a href="/product/{{rs.id}}">Quick view</a></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Product Single -->
+				 {% endfor %}
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+		    <!-- @@@ pagination-container@@@ -->
+			<div class="row">
+				<div class="container" style="text-align:center">
+				<div class="pagination-container">
+					<div class="" >
+						<b style="color:#1374C5!important;">Showing page {{page_obj.number}} of {{ page_obj.paginator.num_pages }}</b>
+					</div>
+					<ul class="pagination align-right float-right mr-auto">
+					  {% if page_obj.has_previous %}
+					  <li {% if page_obj.number == 1 %} class="page-item active" {% endif %}><a class="page-link" href="?page=1"><b>&laquo; 1</b></a></li>
+					  <li class="page-item"> <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><b>Previous</b></a></li>
+					  {% endif %}
+
+					  {% if page_obj.has_next %}
+					  <li class="page-item"> <a class="page-link" href="?page={{ page_obj.next_page_number }}"><b>Next</b></a></li>
+						<li class="page-item"> <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}"><b>{{ page_obj.paginator.num_pages}} &raquo;</b></a></li>
+					  {% endif %}
+					  </ul>
+				  </div>
+				</div>
+			</div>
+			<!--@@@ pagination-container @@@-->
+	</div>
+	<!-- /section -->
+{% endblock %}

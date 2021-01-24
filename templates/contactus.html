@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{% block body %}
+
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="/">Home</a></li>
+				<li class="/contact">Contact Us</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
+ <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Form</h2>
+                    <div class="billing-details">
+                        <div class="section-title">
+                            <h3 class="title"></h3>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{message.tags}}" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <form id="checkout-form" class="clearfix" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+							<button class="primary-btn"  type="submit" value=""> Submit </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h2>Information</h2>
+                    <div class="shiping-methods">
+                        <div class="section-title">
+                            <h3 class="title"></h3>
+                        </div>
+                        <div>
+							<h4>Company Name : Amin Tech</h4>
+							<h4>Company Address : 16/1 Abu ahmed road, shonadanga</h4>
+							<h4>Phone Number : 01819-694673</h4>
+							<h4>Email : cv@amintech.net</h4>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /section -->
+<div class="container">
+ <div class="row">
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.6824151101214!2d89.56412961443837!3d22.814228829808652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff901f1fd13863%3A0xb680df0f417da89d!2zMTYsIDEgQWhzYW4gQWhtZWQgUmQsIOCmluCngeCmsuCmqOCmviA5MTAw!5e0!3m2!1sbn!2sbd!4v1610627762811!5m2!1sbn!2sbd" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+ </div>
+</div><br>
+<br>
+
+{% endblock %}

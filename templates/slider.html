@@ -1,0 +1,39 @@
+{% load static %}
+<style>
+#home .home-wrap {
+    margin-left:0px;
+    height:350px;
+}
+.banner h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+}
+</style>
+	<!-- HOME -->
+	<div id="home">
+		<!-- container -->
+		<div class="container">
+			<!-- home wrap -->
+			<div class="home-wrap">
+					<!-- home slick -->
+				<div id="home-slick">
+					{% for rs in head_sliders %}
+					<!-- banner -->
+					<div class="banner banner-1">
+						<img src="{{ rs.image.url }}" alt="" style=" height:350px;">
+						<div class="banner-caption text-center">
+							<h1 style="color:#FF7800;">{{rs.title}}</h1>
+							<h3 class="white-color font-weak">{{ rs.discount }}</h3>
+							<button class="primary-btn">Shop Now</button>
+						</div>
+					</div>
+					<!-- /banner -->
+					{% endfor %}
+				</div>
+				<!-- /home slick -->
+			</div>
+			<!-- /home wrap -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /HOME -->

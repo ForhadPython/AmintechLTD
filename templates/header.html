@@ -1,0 +1,85 @@
+{% load static %}
+<style>
+.header-search>form .search-input {
+    padding-left: 35px;
+    padding-right: 200px;
+}
+#header {
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+.header-logo .logo>img {
+    width: 100%;
+    max-height: 70px!important;
+}
+</style>
+<!-- HEADER -->
+	<header>
+		<!-- header -->
+		<div id="header">
+			<div class="container">
+				<div class="pull-left">
+					<!-- Logo -->
+					<div class="header-logo">
+						<a class="logo" href="/">
+							<img src="{% static '' %}img/eloveea.png" alt="" style="height:75px; width:200px;">
+						</a>
+					</div>
+					<!-- /Logo -->
+
+					<!-- Search -->
+					<div class="header-search">
+						<form>
+							<input class="input search-input" type="text" placeholder="Enter your keyword">
+							<button class="search-btn"><i class="fa fa-search"></i></button>
+						</form>
+					</div>
+					<!-- /Search -->
+				</div>
+				<div class="pull-right">
+					<ul class="header-btns">
+						<!-- Account -->
+						{% if user.id is not None  %}
+						<li class="header-account dropdown default-dropdown">
+							<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+								<div class="header-btns-icon">
+									<i class="fa fa-user-o"></i>
+								</div>
+								<strong class="text-uppercase">My Account <i class="fa fa-caret-down"></i></strong>
+							</div>
+							<img src="{% static './img/signup.png' %}" alt="" style="height:15px; margin-right: 7px;;"><a href="/logout" class="text-uppercase"><b>Logout</b></a>
+							<ul class="custom-menu">
+								<li><a href="/favourites"><i class="fa fa-heart-o"></i> My Wishlist</a></li>
+								<li><a href="/comments"><i class="fa fa-exchange"></i>Review/Rating</a></li>
+							</ul>
+						</li>
+						{% else %}
+						<li class="header-account dropdown default-dropdown">
+							<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+								<div class="header-btns-icon">
+									<i class="fa fa-user-o"></i>
+								</div>
+								<strong class="text-uppercase">My Account <i class="fa fa-caret-down"></i></strong>
+							</div>
+							<a href="/login" class="text-uppercase"><b><img src="{% static './img/login.png' %}" alt="" style="height:15px; margin-right: 7px;;">Login</b></a>
+							<ul class="custom-menu">
+								<li><a href="/login"><i class="fa fa-unlock-alt"></i>Login</a></li>
+								<li><a href="/signup"><i class="fa fa-user-plus"></i> Create An Account</a></li>
+							</ul>
+						</li>
+						<!-- /Account -->
+                        {% endif %}
+
+						<!-- Mobile nav toggle-->
+						<li class="nav-toggle">
+							<button class="nav-toggle-btn main-btn icon-btn"><i class="fa fa-bars"></i></button>
+						</li>
+						<!-- / Mobile nav toggle -->
+					</ul>
+				</div>
+			</div>
+			<!-- header -->
+		</div>
+		<!-- container -->
+	</header>
+	<!-- /HEADER -->
