@@ -15,5 +15,5 @@
 11| Username : xyz
 12 | Password : xtz
 13| confirm Password :: xyz
-python manage.py makemigrations
-python manage.py migrate
+14 | python manage.py makemigrations
+15 | python manage.py migrate
