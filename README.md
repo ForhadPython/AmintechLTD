@@ -17,3 +17,6 @@
 13| confirm Password :: xyz
 14 | python manage.py makemigrations
 15 | python manage.py migrate
+
+
+16 | python manage.py runserver
