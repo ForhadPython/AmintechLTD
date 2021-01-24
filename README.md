@@ -12,7 +12,8 @@
 9 | python manage.py migrate
    ( Then you need to create a superuser )
 10 | python manage.py createsuperuser 
-admin
-xtz
+11| Username : xyz
+12 | Password : xtz
+13| confirm Password :: xyz
 python manage.py makemigrations
 python manage.py migrate
