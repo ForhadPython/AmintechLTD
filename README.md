@@ -3,7 +3,7 @@
 2 | virtualenv env
 ( Then you have to make an entry in the environment ) 
 ( Then you need to install the requisition files )
-3 | pip install Django==3.1
+3 | pip install Django==3.0
 4 | pip install Pillow
 5 | pip install django-import-export
 6 | pip install django-ckeditor
